@@ -1,0 +1,11 @@
+html {
+  @apply h-full;
+}
+
+body.sb-show-main.sb-main-padded {
+  @apply min-h-full flex flex-col items-stretch;
+}
+
+#storybook-root {
+  @apply flex-grow flex flex-col justify-start items-stretch;
+}
