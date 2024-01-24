@@ -141,7 +141,7 @@ export const Bubble: React.FC<BubbleProps> = ({
         sender
           ? "bg-blue-500 rounded-br-none rounded-tl-2xl text-white ml-auto"
           : "bg-slate-200 rounded-tl-none rounded-br-2xl text-black text-opacity-75 mr-auto",
-        "rounded-tr-2xl rounded-bl-2xl max-w-[300px] transition-transform duration-700 relative select-none",
+        "rounded-tr-2xl rounded-bl-2xl max-w-[300px] transition-transform duration-700 relative select-none bubble",
         showPeek && !typing && "bg-opacity-75",
         typing ? "p-3" : "px-3 py-2",
         className

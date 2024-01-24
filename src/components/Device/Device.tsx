@@ -8,6 +8,7 @@ import clsx from "clsx";
 
 export const Device: React.FC<DeviceProps> = ({ className }) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const deviceRef = useRef<HTMLFormElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const AITimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -113,6 +114,22 @@ export const Device: React.FC<DeviceProps> = ({ className }) => {
     ) as BubbleProps[];
   }, [draftMessageProps, draftAIMessageProps, messages]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      const el = deviceRef.current;
+      if (el) {
+        const lastBubble =
+          el.querySelector<HTMLDivElement>(".bubble:last-child");
+        if (!lastBubble) {
+          return;
+        }
+        lastBubble.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }, 100);
+  }, [combinedMessages]);
+
   return (
     <form
       className={clsx(
@@ -123,6 +140,7 @@ export const Device: React.FC<DeviceProps> = ({ className }) => {
         handleSubmit(e);
         sendMessage();
       }}
+      ref={deviceRef}
     >
       <div className="p-2 text-center bg-teal-500 text-xl text-white">
         AI Chat
